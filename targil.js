@@ -38,12 +38,20 @@ function submitEdit(e) {
 	}
 }
 
+function Esc(e){
+      if(e.keyCode == 27){
+      	e.target.input.setAttribute("value", divWeWantToReplace.innerHTML);
+      	
+      }
+}
+
 function editItem(e){
 	var divWeWantToReplace = e.target.parentElement.children[0];
 	var input = document.createElement("input");
 	input.setAttribute("type", "text");
 	input.setAttribute("value", divWeWantToReplace.innerHTML);
 	input.setAttribute("onkeyup", "submitEdit(event)");
+	input.setAttribute("onkeyup","Esc(event)");
 	divWeWantToReplace.innerHTML = '';
 	divWeWantToReplace.appendChild(input);
 	e.target.style.display = "none";
